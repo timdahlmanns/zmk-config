@@ -91,8 +91,8 @@
             display-name = "QWERTY";
             // ------------------------------------------------------------------------------------------------
             // |  TAB  |   Q   |   W   |   E    |   R    |   T   | MUTE  | PLAY  |   Y   |   U    |   I    |   O   |   P   |   ü   |
-            // | CAPS  | GUI A | ALT S | CTRL D | SHFT F |   G   | LALT  | RALT  |   H   | SHFT J | CTRL K | ALT L | GUI ; |   '   |
-            // |   /   |   Z   |   X   |   C    |   V    |   B   |               |   N   |   M    |   ,    |   .   |   /   |   -   |
+            // | CAPS  | GUI A | ALT S | CTRL D | SHFT F |   G   | LALT  | RALT  |   H   | SHFT J | CTRL K | ALT L | GUI ö |   ä   |
+            // |   /   |   Z   |   X   |   C    |   V    |   B   |               |   N   |   M    |   ,    |   .   |   /   |   ß   |
             //                         |  LWR   |  SYM   |  RET  |               |  SPC  | BSPC   | RALT   |
             // Note: LBKT produces ü (Shift: Ü) with a German host keyboard layout.
             // CAPS taps Caps Lock and holds the NAV layer. Home-row holds are
