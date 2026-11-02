@@ -199,6 +199,24 @@ is saved. Use **Restore Stock Settings** in Studio after changing between
 6-column and 5-column firmware or whenever the compiled default should be
 loaded again.
 
+#### Scroll keys on the 6-column Corne
+
+The lower-right rotary encoder controls volume. Mouse-wheel scrolling is
+available separately through the **Scroll Up** and **Scroll Down** behaviors
+in `config/corne_choc_pro.keymap`.
+
+After building and flashing the updated firmware, reconnect the left half to
+ZMK Studio, unlock it, select a key on the desired layer, and choose **Scroll
+Up** or **Scroll Down** from the behavior picker. Save the changes to the
+keyboard. Hold the assigned key to scroll; releasing it stops scrolling.
+These actions have no parameters and do not require changing any default key
+assignments or restoring stock settings.
+
+For source keymap edits, bind `&scroll_up` or `&scroll_down` to a normal key.
+Keep `CONFIG_ZMK_POINTING=y` enabled in `config/corne_choc_pro.conf`. If mouse
+support is being enabled for the first time, forget and re-pair the Bluetooth
+device so the host refreshes its HID descriptor.
+
 ## Power management
 
 Deep sleep is enabled on every half. The keyboard enters deep sleep after one

@@ -18,14 +18,6 @@
 
 / {
     behaviors {
-        scroll_encoder: scroll_encoder {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            // One 16 ms mouse-scroll update per pulse, at 100 wheel steps/s.
-            tap-ms = <20>;
-            bindings = <&msc MOVE_Y(-100)>, <&msc MOVE_Y(100)>;
-        };
-
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -63,6 +55,30 @@
         };
     };
 
+    macros {
+        // Keep these unassigned behaviors available for selection in ZMK Studio.
+        // Start scrolling on key press and stop on release.
+        scroll_up: scroll_up {
+            compatible = "zmk,behavior-macro";
+            display-name = "Scroll Up";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings = <&macro_press &msc SCRL_UP>,
+                       <&macro_pause_for_release>,
+                       <&macro_release &msc SCRL_UP>;
+        };
+
+        scroll_down: scroll_down {
+            compatible = "zmk,behavior-macro";
+            display-name = "Scroll Down";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings = <&macro_press &msc SCRL_DOWN>,
+                       <&macro_pause_for_release>,
+                       <&macro_release &msc SCRL_DOWN>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -82,8 +98,7 @@
                                       &kp LGUI &mo 1 &kp RET                &kp SPACE &kp BSPC &kp RALT
             >;
             // Sensor order: left upper, left lower, right upper, right lower.
-            // Lower right: clockwise scrolls down, counter-clockwise scrolls up.
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &scroll_encoder>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         lower_layer {
